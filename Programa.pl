@@ -13,7 +13,7 @@ derivada(X^N,X,N*X^NN):- N>0,NN is N-1.
 %Hecho derivada de funcion logaritmo natural
 derivada(ln(X),X,1/X).
 %Hecho derivada funcion exponencial
-derivada(exp(N,X),X,exp(N,X)*ln(N)).
+derivada(exp(X),X,exp(X)).
 %Clausula derivada suma de funciones http://www.nivaria.net/blog/index.php/prolog/383-derivada-de-una-funcion-entera
 derivada(U+V,X,DU+DV):- derivada(U,X,DU),derivada(V,X,DV).
 %Clausula derivada resta de funciones
@@ -34,4 +34,4 @@ derivada(U^N,X,N*(U^NN)*D):- N>0,NN is N-1,derivada(U,X,D).
 %Clausula regla de la cadena funcion logaritmo natural
 derivada(ln(U), X, (1/U) * D) :- derivada(U, X, D).
 %Clausula regla de la cade funcion exponencial
-derivada(exp(N,U),X,exp(N,U)*ln(N)*D):- derivada(U,X,D).
+derivada(exp(U),X,exp(U)*D):- derivada(U,X,D).
